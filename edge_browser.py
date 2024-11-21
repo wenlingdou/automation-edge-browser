@@ -1,3 +1,4 @@
+import datetime 
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
@@ -21,7 +22,7 @@ try:
 
     # Locate the search box, enter the query, and submit
     search_box = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "APjFqb"))
+        EC.presence_of_element_located((By.NAME, "q"))
     )
     search_box.send_keys("Novarc Technologies")
     search_box.submit()
@@ -46,4 +47,6 @@ except Exception as e:
 finally:
     # Quit the browser
     driver.quit()
+
+print(f'---------The test is completed on {datetime.datetime.now()}.-------------')
 
